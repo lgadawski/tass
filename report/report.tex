@@ -1,0 +1,55 @@
+\documentclass[10pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{polski}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{verbatim}
+\usepackage{minted}
+
+\author{Gadawski Łukasz}
+\title{Analiza statystyczna grafu przy użyciu standardowych narzędzi.}
+\begin{document}
+\maketitle
+
+\section{Wykorzystane dane}
+Numer mojego indeksu to 236655. W związku z tym reszta z dzielenia numeru przez 13 równa jest liczbie 3, a więc do mojej analizy przypisany został temat "Połączenia nerwowe nicienia \textit{Caenorhabditis elegans}".
+
+\section{Operacje wstępne}
+Wczytanie grafu w formacie \textit{GraphML} za pomocą pakietu \textit{networkx} odbywa się w prosty sposób. Wykonanie funkcji \textit{info()} wypisującej krótkie podsumowanie informacji o grafie daje następujący rezultat:
+
+\begin{minted}{bash}
+Name: C. Elegans neural network
+Type: MultiDiGraph
+Number of nodes: 297
+Number of edges: 2359
+Average in degree:   7.9428
+Average out degree:   7.9428
+Is directed:  True
+\end{minted}
+
+Typ \textit{MultiDiGraph} oznacza, że wczytany graf jest grafem skierowanym umożliwiającym przechowywanie duplikujących się krawędzi. Następnie podana jest liczba wierzchołków oraz krawędzi, a także średnie stopnie wejściowe oraz wyjściowe wierzchołków.
+
+Aby usunąć zduplikowane krawędzie oraz przekształcić na graf nieskierowany należy stworzyć graf typu \textit{Graph} z wczytanego grafu. Po takiej operacji otrzymujemy następujące informacje na temat wczytanego grafu:
+
+\begin{minted}{bash}
+Name: C. Elegans neural network
+Type: Graph
+Number of nodes: 297
+Number of edges: 2148
+Average degree:  14.4646
+Is directed:  False
+\end{minted}
+
+Co jest zgodne z naszymi oczekiwaniami. Zmniejszyła się nieznacznie liczba krawędzi co świadczy o tym, że w grafie wejściowym występowały zduplikowane krawędzie.
+
+%\begin{figure}[H]
+%	\centering
+%	\includegraphics[scale=0.3]{vertex-element}
+%	\caption{Analiza ze względu na ilość wierzchołków.	
+%	\label{fig:vertex-element}}
+%\end{figure}
+
+
+\end{document}
