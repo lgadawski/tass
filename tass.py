@@ -114,8 +114,8 @@ import networkx as nx'''
 import networkx as nx'''
     print timeit.timeit("nx.connected_component_subgraphs(graph)[0]", setup, number=1)
 
-    print "Size (edges) of largest connected components: ", largest_cc.number_of_edges(), " edges"
     print "Range (nodes) of largest connected component: ", largest_cc.number_of_nodes(), " nodes"
+    print "Size (edges) of largest connected components: ", largest_cc.number_of_edges(), " edges"
 
     # posrednictwo*
     top_bet = top_5_map_entry_sorted_by_val(nx.betweenness_centrality(largest_cc))
